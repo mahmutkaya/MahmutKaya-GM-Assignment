@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "normal",
+      "command": "npm run test",
+      "env": { "tags": "@test" }
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "debug",
+      "command": "npm run test",
+      "env": { "PWDEBUG": "1", "tags": "@test" }
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "smoke",
+      "command": "npm run test",
+      "env": { "tags": "@smoke" }
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "regression",
+      "command": "npm run test",
+      "env": { "tags": "@regression" }
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "localhost",
+      "command": "npm run test",
+      "env": { "tags": "@test", "BASE_URL": "https://localhost", "BASE_ENV": "Dev" }
+    }
+  ]
+}
