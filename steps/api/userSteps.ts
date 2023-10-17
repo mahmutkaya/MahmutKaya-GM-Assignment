@@ -9,7 +9,6 @@ When('I create/have a user with following details:', async (userDt: DataTable) =
   testContext.user = userDt.hashes()[0] as any;
   global.response = await request.post(ENDPOINTS.USER, {
     data: testContext.user,
-    failOnStatusCode: true,
   });
 });
 
@@ -25,9 +24,9 @@ When('I get user details', async () => {
 });
 
 Then('I verify that status code is {int}', async (statusCode: number) => {
-  expect(response.status()).toBe(statusCode);
+  expect(global.response.status()).toBe(statusCode);
 });
 
-Then('I verify that response contains userName {string}', async (userName: string) => {
-  expect(await response.json()).toHaveProperty('username', userName);
+Then(/^I verify that response contains (.*) "([^"]*)"$/, async (key: string, value: string) => {
+  expect(await global.response.json()).toHaveProperty(key, value);
 });

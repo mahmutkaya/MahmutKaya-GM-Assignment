@@ -26,7 +26,6 @@ module.exports = {
       "html:test-results/cucumber-junit-report.html",
     ],
     publish: true,
-    parallel: 4,
     retry: 1,
   },
 };

@@ -15,11 +15,11 @@ Before('@api', async () => {
 
 After('@deleteUser', async () => {
   const user: UserDto = await generateTokenAndLogin();
-  global.response = await global.request.delete(`${ENDPOINTS.USER}/${user.userId}`, {
+  const res = await global.request.delete(`${ENDPOINTS.USER}/${user.userId}`, {
     headers: {
       Authorization: 'Bearer ' + user.token,
     },
     failOnStatusCode: true,
   });
-  expect(response.status()).toEqual(204);
+  expect(res.status()).toEqual(204);
 });

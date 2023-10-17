@@ -17,7 +17,6 @@ When('I add/have following book(s):', async (isbnDt: DataTable) => {
     headers: {
       Authorization: 'Bearer ' + user.token,
     },
-    failOnStatusCode: true,
   });
 });
 
@@ -28,7 +27,6 @@ When('I remove the book with isbn {string}', async (isbn: string) => {
     headers: {
       Authorization: 'Bearer ' + user.token,
     },
-    failOnStatusCode: true,
   });
 });
 
